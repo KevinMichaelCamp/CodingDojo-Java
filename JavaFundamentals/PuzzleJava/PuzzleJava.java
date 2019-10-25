@@ -32,7 +32,9 @@ public class PuzzleJava {
         // ShuffleNames(names);
         // LongerThanFive(names);
         // ShuffleAlphabet(alphabet);
-        RandomArray();
+        // RandomArray();
+        // RandomString(alphabet);
+        RandStrings();
 
     }
     public static void SumArray(ArrayList<Integer> arr) {
@@ -89,5 +91,25 @@ public class PuzzleJava {
             randoms.add(r.nextInt((100 - 55) + 1) + 55);
         }
         System.out.println(randoms);
+        Collections.sort(randoms);
+        System.out.println(randoms);
+    }
+    public static String RandomString(Character[] arr) {
+        Random r = new Random();
+        String randString = "";
+        for(int i = 0; i < 5; i++){
+            randString += arr[r.nextInt(25)];
+        }
+        System.out.println(randString);
+        return randString;
+    }
+    public static void RandStrings() {
+        Character[] alphabet = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q',
+                'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
+        ArrayList<String> randStrings = new ArrayList<String>();
+        for(int i = 0; i < 10; i++){
+            randStrings.add(RandomString(alphabet));
+        }
+        System.out.println(randStrings);
     }
 }   
