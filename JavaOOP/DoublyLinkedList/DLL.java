@@ -50,7 +50,7 @@ public class DLL {
     }
 
     // Contains
-    boolean contains(int value) {
+    public boolean contains(int value) {
         Node current = this.head;
         while(current != null){
             if(current.value == value){
@@ -62,7 +62,7 @@ public class DLL {
     }
 
     // Size
-    int size() {
+    public int size() {
         int counter = 0;
         Node current = this.head;
         while(current != null){
@@ -73,7 +73,7 @@ public class DLL {
     }
 
     // Insert At  - might not work with lists containing 1 node
-    void insertAt(int pos, Node newNode) {
+    public void insertAt(int pos, Node newNode) {
         Node current = this.head;
 
         if(pos < 0){
@@ -91,7 +91,7 @@ public class DLL {
     }
 
     // Remove At
-    void removeAt(int pos) {
+    public void removeAt(int pos) {
         Node current = this.head;
 
         if (pos < 0) {
@@ -107,7 +107,7 @@ public class DLL {
         next.previous = prev;
     }
     // is Palindrome
-    boolean isPalindrome() {
+    public boolean isPalindrome() {
         Node frunner = this.head;
         Node brunner = this.tail;
         while (frunner.value == brunner.value) {
