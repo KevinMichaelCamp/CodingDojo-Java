@@ -1,30 +1,46 @@
+import java.util.ArrayList;
+
 public class Calculator {
+    ArrayList<String> operators = new ArrayList<String>();
+    ArrayList<Double> nums = new ArrayList<Double>();
     private double results;
-    private double num1;
-    private double num2;
-    private char operator;
-    
+
     // Constructor
     public Calculator() {}
 
-    // Setters
-    public void setNum1(double input) {
-        this.num1 = input;
-    }
-    public void setNum2(double input) {
-        this.num2 = input;
-    }
-    public void setOperator(char input) {
-        this.operator = input;
+    public void performOperation(double dub) {
+        nums.add(dub);
     }
 
-    // Calc Methods
-    public void performOperation() {
-        if(this.operator == '+') {
-            results = num1 + num2;
-        }
-        if(this.operator == '-') {
-            results = num1 - num2;
+    public void performOperation(int dub) {
+        nums.add((double) dub);
+    }
+
+    public void performOperation(String str) {
+        if (str != "=") {
+            operators.add(str);
+        } else {
+            Double start = nums.get(nums.size() - 1);
+            for (int i = operators.size() - 1; i >= 0; i--) {
+                switch (operators.get(i)) {
+                case "+":
+                    start = start + nums.get(i);
+                    break;
+                case "-":
+                    start = start - nums.get(i);
+                    break;
+                case "*":
+                    start = start * nums.get(i);
+                    break;
+                case "/":
+                    start = start / nums.get(i);
+                    break;
+                default:
+                    System.out.println("Invalid operator.");
+                    break;
+                }
+            }
+            this.results = start;
         }
     }
     public void getResults() {
