@@ -18,6 +18,7 @@
 <body>
 	<div class="jumbotron display-4 p-5">Sessions Counter</div>
 	<a href="/counter"><button class="btn btn-primary">Go to Counter</button></a>
+	<a href="/addTwo"><button class="btn btn-info">Add Two to Counter</button></a>
 </body>
 
 </html>

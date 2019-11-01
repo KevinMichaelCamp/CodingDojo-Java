@@ -24,14 +24,35 @@ public class Counter {
 	
 	@RequestMapping("/counter")
 	public String counter(HttpSession session, Model model) {
-		Integer count = (Integer)session.getAttribute("count");
+		Integer count;
+		if (session.getAttribute("count") == null) {
+			session.setAttribute("count", 0);
+			count = (Integer)session.getAttribute("count");
+		} else {
+			count = (Integer)session.getAttribute("count");
+		}
+		model.addAttribute("count", count);
+		return "counter.jsp";
+	}
+	
+	@RequestMapping("/addTwo")
+	public String addTwo(HttpSession session, Model model) {
+		Integer count;
+		if (session.getAttribute("count") == null) {
+			session.setAttribute("count", 0);
+			count = (Integer)session.getAttribute("count");
+		} else {
+			count = (Integer)session.getAttribute("count");
+		}
+		count += 2;
+		session.setAttribute("count", count);
 		model.addAttribute("count", count);
 		return "counter.jsp";
 	}
 	
 	@RequestMapping("/reset")
 	public String reset(HttpSession session) {
-		session.setAttribute("count", 1);
+		session.setAttribute("count", null);
 		return "index.jsp";
 	}
 }

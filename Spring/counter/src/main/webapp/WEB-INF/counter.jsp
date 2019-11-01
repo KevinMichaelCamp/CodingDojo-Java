@@ -19,6 +19,7 @@
 	<div class="jumbotron display-4 p-5">Sessions Counter</div>
 	<h1>You have visited <a href="/">http://localhost:8080</a> <c:out value="${count}"/> times.</h1>
 	<a href="/"><button class="btn btn-primary">Go Back</button></a>
+	<a href="/addTwo"><button class="btn btn-info">Add Two to Counter</button></a>
 	<a href="/reset"><button class="btn btn-danger">Reset Sessions Counter</button>
 </body>
 
