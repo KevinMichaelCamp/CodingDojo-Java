@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Portfolio {
     public ArrayList<Project> Projects;
     public Portfolio() {
-        this.Projects = new ArrayList<Project>();
+        this.Projects = new ArrayList<>();
     }
     public void AddToPortfolio(Project p) {
         Projects.add(p);
