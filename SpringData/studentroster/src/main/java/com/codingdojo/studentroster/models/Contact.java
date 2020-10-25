@@ -1,6 +1,5 @@
-package com.codingdojo.relationships.models;
+package com.codingdojo.studentroster.models;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -10,40 +9,50 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+
 @Entity
-@Table(name="Licenses")
-public class License {
+@Table(name="contacts")
+public class Contact {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private int number;
-	@DateTimeFormat(pattern="yyyy-MM-dd")
-	private Date expirationDate;
+	@Size(min=2, max=50)
+	private String address;
+	@Size(min=2, max=50)
+	private String city;
+	@Size(min=2, max=2)
 	private String state;
 	@Column(updatable=false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date createdAt;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;
-	@OneToOne (fetch=FetchType.LAZY)
-	@JoinColumn(name="person_id")
-	private Person person;
+	@NotNull
+	@OneToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="student_id", unique=true)
+	@MapsId
+	private Student student;
 	
-	public License() {}
+	// COnstructors
+	public Contact() {}
 
-	public License(int number, Date expirationDate, String state, Person person) {
-		this.number = number;
-		this.expirationDate = expirationDate;
+	public Contact(String address, String city, String state, Student student) {
+		this.address = address;
+		this.city = city;
 		this.state = state;
-		this.person = person;
+		this.student = student;
 	}
+	// Getters & Setters
 
 	public Long getId() {
 		return id;
@@ -53,20 +62,20 @@ public class License {
 		this.id = id;
 	}
 
-	public int getNumber() {
-		return number;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setNumber(int number) {
-		this.number = number;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
-	public Date getExpirationDate() {
-		return expirationDate;
+	public String getCity() {
+		return city;
 	}
 
-	public void setExpirationDate(Date expirationDate) {
-		this.expirationDate = expirationDate;
+	public void setCity(String city) {
+		this.city = city;
 	}
 
 	public String getState() {
@@ -93,12 +102,12 @@ public class License {
 		this.updatedAt = updatedAt;
 	}
 
-	public Person getPerson() {
-		return person;
+	public Student getStudent() {
+		return student;
 	}
 
-	public void setPerson(Person person) {
-		this.person = person;
+	public void setStudent(Student student) {
+		this.student = student;
 	}
 	
 	//MEthods
@@ -110,21 +119,4 @@ public class License {
 	protected void onUpdate() {
 		this.updatedAt = new Date(); 
 	}
-	
-	//OtherMethods
-	public String getNumberAsString() {
-		int numZeroes = 7 - String.valueOf(this.number).length();
-		StringBuilder sb = new StringBuilder();
-		for ( int i = 0; i < numZeroes; i++) {
-			sb.append('0');
-		}
-		return String.format("%/s%/d", sb, this.number);
-	}
-	
-	public String getExpirationDateFormatted() {
-		SimpleDateFormat fm = new SimpleDateFormat("MM/dd/yyyy");
-		return fm.format(this.expirationDate);
-	}
-	
-
 }

@@ -1,0 +1,27 @@
+header h1 {
+	display: inline-block;
+	margin-left: 50px;	
+}
+
+header a {
+	float: right;
+	margin: 10px 20px 0 0;
+}
+
+h3>a {
+	text-decoration: none;	
+}
+
+label {
+	font-size: 1.2em;
+	text-align: right;	
+}
+
+th {
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+table tr[data-href] {
+	cursor: pointer;
+}
