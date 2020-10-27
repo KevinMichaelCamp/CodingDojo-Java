@@ -1,3 +1,7 @@
+.btn {
+	font-weight: bolder;
+}
+
 header h1 {
 	display: inline-block;
 	margin-left: 20px;
@@ -15,5 +19,9 @@ label, th {
 
 table tr[data-href] {
     cursor: pointer;
+}
+
+td>a {
+	color: black;
 }
 

@@ -12,34 +12,50 @@
 </head>
 <body>
 	<header class="bg-dark p-2 mb-5">
-		<h1 class="text-light">Student Info</h1>
-		<a href="/students/new" class="btn btn-success">Add Student</a>
-		<a href="/contacts/new" class="btn btn-success">Add Contact Info</a>
-		<a href="/students" class="btn btn-success">Student Index</a>
+		<h1 class="text-light">Student<span class="text-primary">Housing</span>App</h1>
+		<a href="/" class="btn btn-primary">Home</a>
+		<a href="/dorms" class="btn btn-primary">View Dorms</a>
+		<a href="/students/pages/1" class="btn btn-primary">View Students</a>
 	</header>
 	<main class="text-left w-25 m-auto">
-		<h2 class="text-center mb-5"><c:out value="${ student.firstName } ${ student.lastName }"/></h2>
-		<div class="row">
-			<div class="col">
+		<h2 class="text-center mb-5">Student Info</h2>
+		<div class="row mb-5">
+			<div class="col-4">
+				<h4>Name</h4>
+			</div>
+			<div class="col-8">
+				<h4><c:out value="${ student.firstName } ${student.lastName }"/></h4>
+			</div>
+		</div>
+		<div class="row mb-5">
+			<div class="col-4">
+				<h4>Dormitory</h4>
+			</div>
+			<div class="col-8">
+				<h4><c:out value="${ student.dormitory.name }"/> Hall</h4>
+			</div>
+		</div>
+		<div class="row mb-5">
+			<div class="col-4">
 				<h4>Address</h4>
 			</div>
-			<div class="col">
+			<div class="col-8">
 				<h4><c:out value="${ student.contact.address }"/></h4>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col">
+		<div class="row mb-5">
+			<div class="col-4">
 				<h4>City</h4>
 			</div>
-			<div class="col">
+			<div class="col-8">
 				<h4><c:out value="${ student.contact.city }"/></h4>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col">
+		<div class="row mb-5">
+			<div class="col-4">
 				<h4>State</h4>
 			</div>
-			<div class="col">
+			<div class="col-8">
 				<h4><c:out value="${ student.contact.state }"/></h4>
 			</div>
 		</div>

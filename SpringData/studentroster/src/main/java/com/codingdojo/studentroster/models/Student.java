@@ -9,6 +9,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
@@ -37,6 +39,9 @@ public class Student {
 	private Date updatedAt;
 	@OneToOne(mappedBy="student", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
 	private Contact contact;
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="dormitory_id")
+	private Dormitory dormitory;
 	
 	// Constructors
 	public Student() {}
@@ -78,7 +83,7 @@ public class Student {
 	public void setAge(int age) {
 		this.age = age;
 	}
-
+	
 	public Date getCreatedAt() {
 		return createdAt;
 	}
@@ -101,6 +106,14 @@ public class Student {
 
 	public void setContact(Contact contact) {
 		this.contact = contact;
+	}
+	
+	public Dormitory getDormitory() {
+		return dormitory;
+	}
+	
+	public void setDormitory(Dormitory dormitory) {
+		this.dormitory = dormitory;
 	}
 	
 	// Getters & Setters

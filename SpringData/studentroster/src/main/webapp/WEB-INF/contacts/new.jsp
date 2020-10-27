@@ -13,12 +13,11 @@
 </head>
 <body>
 	<header class="bg-dark p-2 mb-5">
-		<h1 class="text-light">Add Contact Information</h1>
-		<a href="/students/new" class="btn btn-success">Add Student</a>
-		<a href="/students" class="btn btn-success">Student Index</a>
+		<h1 class="text-light">Student<span class="text-primary">Housing</span>App</h1>
+		<a href="/" class="btn btn-primary">Home</a>
 	</header>
 	<main class="text-center">
-		<h3 class="mb-5">Contact Information</h3>
+		<h2 class="mb-5">Add Contact Info</h2>
 		<form:form class="form w-50 m-auto" action="/contacts" method="POST" modelAttribute="contact">
 			<div class="form-group row">
 				<form:label class="col-3" path="student">Student</form:label>
@@ -43,7 +42,7 @@
 				<form:input class="form-control col-5" path="state"/>
 				<form:errors class="col-4 text-danger" path="state"/>
 			</div>
-			<input type="submit" class="btn btn-info mt-5" value="Add Contact Info">
+			<input type="submit" class="btn btn-success mt-5" value="Add Contact">
 		</form:form>
 	</main>	
 </body>
