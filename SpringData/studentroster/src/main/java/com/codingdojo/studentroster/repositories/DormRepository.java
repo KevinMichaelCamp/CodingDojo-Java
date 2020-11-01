@@ -9,5 +9,5 @@ import com.codingdojo.studentroster.models.Dormitory;
 
 @Repository
 public interface DormRepository extends CrudRepository<Dormitory, Long>{
-	List<Dormitory> findAll();
+	List<Dormitory> findByOrderByName();
 }

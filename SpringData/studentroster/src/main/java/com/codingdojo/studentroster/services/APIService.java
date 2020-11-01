@@ -12,9 +12,11 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.codingdojo.studentroster.models.Contact;
+import com.codingdojo.studentroster.models.Course;
 import com.codingdojo.studentroster.models.Dormitory;
 import com.codingdojo.studentroster.models.Student;
 import com.codingdojo.studentroster.repositories.ContactRepository;
+import com.codingdojo.studentroster.repositories.CourseRepository;
 import com.codingdojo.studentroster.repositories.DormRepository;
 import com.codingdojo.studentroster.repositories.StudentRepository;
 
@@ -25,15 +27,18 @@ public class APIService {
 	private StudentRepository studentRepo;
 	private ContactRepository contactRepo;
 	private DormRepository dormRepo;
+	private CourseRepository courseRepo;
 	private static final int PAGE_SIZE = 10;
 	
 	public APIService(
 			StudentRepository studentRepo,
 			ContactRepository contactRepo,
-			DormRepository dormRepo) {
+			DormRepository dormRepo,
+			CourseRepository courseRepo) {
 		this.studentRepo = studentRepo;
 		this.contactRepo = contactRepo;
 		this.dormRepo = dormRepo;
+		this.courseRepo = courseRepo;
 	}
 	
 	// Students
@@ -48,6 +53,10 @@ public class APIService {
 	
 	public List<Student> findByDormNull() {
 		return studentRepo.findAllByDormitoryNullOrderByLastName();
+	}
+	
+	public List<Student> findStudentsNotEnrolled(Long id) {
+		return studentRepo.findAllNotEnrolled(id);
 	}
 	
 	public Student findOneStudent(Long id) {
@@ -105,7 +114,7 @@ public class APIService {
 	
 	// Dormitories
 	public List<Dormitory> findAllDorms() {
-		return dormRepo.findAll();
+		return dormRepo.findByOrderByName();
 	}
 	
 	public Dormitory findOneDorm(Long id) {
@@ -153,6 +162,58 @@ public class APIService {
 			dorm.get().setStudents(residents);
 			studentRepo.save(student.get());
 			dormRepo.save(dorm.get());
+		}
+	}
+	
+	// Courses
+	public List<Course> findAllCourses() {
+		return courseRepo.findByOrderByName();
+	}
+	
+	public List<Course> findCoursesNotEnrolled(Long studentId) {
+		return courseRepo.findAllNotEnrolled(studentId);
+	}
+	
+	public Course findOneCourse(Long id) {
+		return courseRepo.findById(id).orElse(null);
+	}
+	
+	public Course createCourse(Course course) {
+		return courseRepo.save(course);
+	}
+	
+	public Course updateCourse(Course course) {
+		Optional<Course> temp = courseRepo.findById(course.getId());
+		if (temp.isPresent()) {
+			temp.get().setName(course.getName());
+			return courseRepo.save(temp.get());
+		} else {
+			return null;
+		}
+	}
+	public void deleteCourse(Long id) {
+		courseRepo.deleteById(id);
+	}
+	
+	public void enroll(Long courseId, Long studentId) {
+		Optional<Course> course = courseRepo.findById(courseId);
+		Optional<Student> student = studentRepo.findById(studentId);
+		if (course.isPresent() && student.isPresent()) {
+			List<Course> courses = student.get().getCourses();
+			courses.add(course.get());
+			student.get().setCourses(courses);
+			studentRepo.save(student.get());
+		}
+	}
+	
+	public void drop(Long courseId, Long studentId) {
+		Optional<Course> course = courseRepo.findById(courseId);
+		Optional<Student> student = studentRepo.findById(studentId);
+		if (course.isPresent() && student.isPresent()) {
+			List<Course> courses = student.get().getCourses();
+			courses.remove(course.get());
+			student.get().setCourses(courses);
+			studentRepo.save(student.get());
 		}
 	}
 }

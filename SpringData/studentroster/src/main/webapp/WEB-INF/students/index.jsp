@@ -13,8 +13,8 @@
 <script src="/js/show.js"></script>
 </head>
 <body>
-	<header class="bg-dark p-2 mb-5">
-		<h1 class="text-light">Student<span class="text-primary">Housing</span>App</h1>
+	<header class="bg-dark p-2 mb-3">
+		<h1 class="text-light">Student<span class="text-primary">Resources</span>App</h1>
 		<a href="/" class="btn btn-primary">Home</a>
 		<a href="/contacts/new" class="btn btn-primary">Add Contact Info</a>
 		<a href="/students/new" class="btn btn-primary">Add Student</a>
@@ -29,6 +29,7 @@
 					<th>Address</th>
 					<th>City</th>
 					<th>State</th>
+					<th># of Classes</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -39,13 +40,27 @@
 					<td>${ student.contact.address }</td>
 					<td>${ student.contact.city }</td>
 					<td>${ student.contact.state }</td>
+					<td>${ student.courses.size() }</td>
 				</tr>
 				</c:forEach>
 			</tbody>
 		</table>
-		<c:forEach begin="1" end="${ totalPages }" var="index">
-			<a href="/students/pages/${ index }">${ index }</a>
-		</c:forEach>
+		<div class="mt-2">
+		  <ul class="pagination justify-content-center">
+		    <c:forEach begin="1" end="${ totalPages }" var="index">
+		    	<c:if test="${ index == pageNumber }">
+			    	<li class="page-item disabled">
+			    		<a class="page-link" href="/students/pages/${ index }">${ index }</a>
+			    	</li>
+		    	</c:if>
+		    	<c:if test="${ index != pageNumber }">
+			    	<li class="page-item">
+			    		<a class="page-link" href="/students/pages/${ index }">${ index }</a>
+			    	</li>
+		    	</c:if>
+		    </c:forEach>
+		  </ul>
+		</div>
 	</main>
 </body>
 </html>

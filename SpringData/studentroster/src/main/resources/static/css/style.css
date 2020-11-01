@@ -12,6 +12,10 @@ header a {
 	margin: 15px 20px;
 }
 
+.inline {
+	display: inline-block;	
+}
+
 label, th {
 	font-size: 1.2em;
 	font-weight: bold;
@@ -21,7 +25,15 @@ table tr[data-href] {
     cursor: pointer;
 }
 
+table tr[data-href]:hover {
+    color: #18BC9C;
+}
+
 td>a {
 	color: black;
+}
+
+ul li {
+	list-style-type: none;
 }
 

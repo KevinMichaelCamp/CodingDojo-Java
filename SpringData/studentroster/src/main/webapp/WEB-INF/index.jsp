@@ -6,34 +6,60 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Student Housing Home</title>
+<title>Student Resources Home</title>
 <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.css">
 <link rel="stylesheet" href="/css/style.css">
 <style>
 	.btn {
+		margin:20px;
 		padding: 2rem 1rem;
 		width: 200px;
 	}
-	.row {
-		margin: 100px auto;
+	.card {
+		margin-bottom: 50px !important;
 	}
 </style>
 </head>
 <body>
-	<header class="bg-dark p-2 mb-5">
-		<h1 class="text-light">Student<span class="text-primary">Housing</span>App</h1>
+	<header class="bg-dark p-2 mb-3">
+		<h1 class="text-light">Student<span class="text-primary">Resources</span>App</h1>
 	</header>
-	<main class="text-center ">
-		<div class="row w-50">
-			<div class="col-6"><a href="/dorms" class="btn btn-lg btn-info">View Dorms</a></div>
-			<div class="col-6"><a href="/students/pages/1" class="btn btn-lg btn-info">View Students</a></div>
+	<div class="card w-50 m-auto bg-light p-3 text-center">
+		<h5>Full Stack Spring Application using Java, JSPs & Bootstrap, with a MySQL database</h5>
+		<h6>Models used to showcase OneToOne, OneToMany, & ManyToMany table relationships</h6>
+		<h6>Pagination, Repositories, APIService and Controller used in back-end</h6>
+	</div>
+	<div class="w-75 row m-auto text-center">
+		<div class="col">
+			<h4>Classes</h4>
+			<a class="btn btn-info" href="/classes">View Classes</a>
 		</div>
-		<div class="row"></div>
-		<div class="row w-75">
-			<div class="col-4"><a href="/dorms/new" class="btn btn-lg btn-success">Add Dorm</a></div>
-			<div class="col-4"><a href="/students/new" class="btn btn-lg btn-success">Add Student</a></div>
-			<div class="col-4"><a href="/contacts/new" class="btn btn-lg btn-success">Add Contact Info</a></div>
+		<div class="col">
+			<h4>Students</h4>
+			<a class="btn btn-info" href="/students/pages/1">View Students</a>
 		</div>
-	</main>
+		<div class="col">
+			<h4>Dormitories</h4>
+			<a class="btn btn-info" href="/dorms">View Dorms</a>
+		</div>
+	</div>
+	<div class="w-75 row m-auto text-center">
+		<div class="col">
+			<a class="btn btn-info" href="/classes/new">Add Class</a>
+		</div>
+		<div class="col">
+			<a class="btn btn-info" href="/students/new">Add Student</a>
+		</div>
+		<div class="col">
+			<a class="btn btn-info" href="/dorms/new">Add Dorm</a>
+		</div>
+	</div>
+	<div class="w-75 row m-auto text-center">
+		<div class="col"></div>
+		<div class="col">
+			<a class="btn btn-info" href="/contacts/new">Add Contact Info</a>
+		</div>
+		<div class="col"></div>
+	</div>
 </body>
 </html>

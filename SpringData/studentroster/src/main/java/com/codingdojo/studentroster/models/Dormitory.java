@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -31,6 +32,7 @@ public class Dormitory {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;
 	@OneToMany(mappedBy="dormitory", fetch=FetchType.LAZY)
+	@OrderBy("lastName")
 	private List<Student> students;
 	
 	public Dormitory() {}

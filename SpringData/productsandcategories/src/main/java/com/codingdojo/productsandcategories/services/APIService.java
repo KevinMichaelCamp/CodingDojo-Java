@@ -22,7 +22,11 @@ public class APIService {
 	
 	//Products
 	public List<Product> findAllProducts() {
-		return productRepo.findAll();
+		return productRepo.findByOrderByName();
+	}
+	
+	public List<Product> findAllProductsNotAssoc(Long categoryId) {
+		return productRepo.findAllNotAssoc(categoryId);
 	}
 	
 	public Product findOneProduct(Long id) {
@@ -40,7 +44,11 @@ public class APIService {
 	
 	//Categories
 	public List<Category> findAllCategories() {
-		return categoryRepo.findAll();
+		return categoryRepo.findByOrderByName();
+	}
+	
+	public List<Category> findAllCategoriesNotAssoc(Long productId) {
+		return categoryRepo.findAllNotAssoc(productId);
 	}
 	
 	public Category findOneCategory(Long id) {

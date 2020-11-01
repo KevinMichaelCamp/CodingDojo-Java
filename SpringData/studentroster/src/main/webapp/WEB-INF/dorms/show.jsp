@@ -11,14 +11,14 @@
 <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-	<header class="bg-dark p-2 mb-5">
-		<h1 class="text-light">Student<span class="text-primary">Housing</span>App</h1>
+	<header class="bg-dark p-2 mb-3">
+		<h1 class="text-light">Student<span class="text-primary">Resources</span>App</h1>
 		<a href="/" class="btn btn-primary">Home</a>
 		<a href="/dorms" class="btn btn-primary">View Dorms</a>
 		<a href="/dorms/new" class="btn btn-primary">Add Dorm</a>
 	</header>
 	<main class="text-left w-50 m-auto">
-		<h2 class="text-center mb-5"><c:out value="${ dorm.name }"/> Hall</h2>
+		<h2 class="text-center mb-2"><c:out value="${ dorm.name }"/> Hall</h2>
 		<form action="/dorms/${ dorm.id }/addStudent" method="POST">
 			<div class="row">
 				<div class="col-2">

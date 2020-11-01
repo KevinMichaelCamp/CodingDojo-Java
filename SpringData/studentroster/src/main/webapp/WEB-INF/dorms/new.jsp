@@ -11,8 +11,8 @@
 <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-	<header class="bg-dark p-2 mb-5">
-		<h1 class="text-light">Student<span class="text-primary">Housing</span>App</h1>
+	<header class="bg-dark p-2 mb-3">
+		<h1 class="text-light">Student<span class="text-primary">Resources</span>App</h1>
 		<a href="/" class="btn btn-primary">Home</a>
 	</header>
 	<main class="text-center">

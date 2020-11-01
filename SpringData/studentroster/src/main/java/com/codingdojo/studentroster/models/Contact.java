@@ -37,8 +37,8 @@ public class Contact {
 	private Date createdAt;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;
-	@NotNull
-	@OneToOne(fetch=FetchType.LAZY)
+	@NotNull()
+	@OneToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="student_id", unique=true)
 	@MapsId
 	private Student student;

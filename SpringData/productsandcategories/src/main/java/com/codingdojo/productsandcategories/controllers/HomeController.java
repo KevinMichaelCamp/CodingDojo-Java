@@ -82,7 +82,7 @@ public class HomeController {
 	@RequestMapping("/products/{id}")
 	public String showProduct(@PathVariable("id") Long id, Model model) {
 		Product product = api.findOneProduct(id);
-		List<Category> categories = api.findAllCategories();
+		List<Category> categories = api.findAllCategoriesNotAssoc(id);
 		model.addAttribute("product", product);
 		model.addAttribute("categories", categories);
 		return "/products/show.jsp";
@@ -91,7 +91,7 @@ public class HomeController {
 	@RequestMapping("/categories/{id}")
 	public String showCategory(@PathVariable("id") Long id, Model model) {
 		Category category = api.findOneCategory(id);
-		List<Product> products = api.findAllProducts();
+		List<Product> products = api.findAllProductsNotAssoc(id);
 		model.addAttribute("category", category);
 		model.addAttribute("products", products);
 		return "/categories/show.jsp";
