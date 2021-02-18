@@ -15,7 +15,7 @@
 
 <body>
 	<header class="bg-dark p-2 mb-5">
-		<h1>Employees & Mangagers</h1>
+		<h1>Employees &amp; Mangagers</h1>
 		<a href="/employees/new" class="btn btn-primary">Add Employee</a>
 	</header>
 	<main class="text-center w-75 m-auto">

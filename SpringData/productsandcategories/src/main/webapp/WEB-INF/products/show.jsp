@@ -12,7 +12,7 @@
 </head>
 <body>
 	<header class="bg-primary p-2 mb-5">
-		<h1>Products & Categories</h1>
+		<h1>Products &amp; Categories</h1>
 		<a href="/products" class="btn btn-info">View Products</a>
 		<a href="/categories" class="btn btn-info">View Categories</a>
 		<a href="/products/new" class="btn btn-info">Add Product</a>

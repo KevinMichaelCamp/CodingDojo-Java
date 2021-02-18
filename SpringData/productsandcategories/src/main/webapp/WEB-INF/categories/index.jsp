@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Products & Categories</title>
+<title>Products &amp; Categories</title>
 <link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css">
 <link rel="stylesheet" href="/css/style.css">
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -14,7 +14,7 @@
 </head>
 <body>
 	<header class="bg-primary p-2 mb-5">
-		<h1>Products & Categories</h1>
+		<h1>Products &amp; Categories</h1>
 		<a href="/products" class="btn btn-info">View Products</a>
 		<a href="/categories" class="btn btn-info">View Categories</a>
 		<a href="/products/new" class="btn btn-info">Add Product</a>

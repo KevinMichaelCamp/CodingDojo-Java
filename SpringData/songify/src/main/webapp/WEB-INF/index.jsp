@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div class="container text-center">
-		<h1 class="jumbotron mt-5">Songify - Music Playlist & Ratings</h1>
+		<h1 class="jumbotron mt-5">Songify - Music Playlist &amp; Ratings</h1>
 		<a href="/songs" class="btn btn-primary">Start Songify!</a>
 	</div>
 </body>

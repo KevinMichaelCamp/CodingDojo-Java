@@ -31,13 +31,13 @@ public class UserService {
 		Optional<User> f = userRepo.findById(friendId);
 		if (u.isPresent() && f.isPresent()) {
 			List<User> uFriends = u.get().getFriends();
-			if (!uFriends.contains(f)) {
+			if (!uFriends.contains(f.orElse(null))) {
 				uFriends.add(f.get());
 				u.get().setFriends(uFriends);
 				userRepo.save(u.get());
 			}
 			List<User> fFriends = f.get().getFriends();
-			if (!fFriends.contains(u)) {
+			if (!fFriends.contains(u.orElse(null))) {
 				fFriends.add(u.get());
 				f.get().setFriends(fFriends);
 				userRepo.save(f.get());

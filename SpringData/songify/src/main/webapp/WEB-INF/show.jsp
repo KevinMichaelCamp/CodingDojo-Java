@@ -13,7 +13,7 @@
 <body>
 	<header class="bg-dark p-2 mb-5">
 		<h1>Songify.</h1>
-		<h6>Music Playlist & Ratings</h6>
+		<h6>Music Playlist &amp; Ratings</h6>
 		<a href="/songs" class="btn btn-info mr-5 mt-3">Dashboard</a>
 	</header>
 	<main class="text-center container">

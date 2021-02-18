@@ -11,7 +11,7 @@
 
 <body>
 	<header class="bg-dark p-2 mb-5">
-		<h1>Employees & Mangagers</h1>
+		<h1>Employees &amp; Mangagers</h1>
 		<a href="/employees" class="btn btn-primary">Employee Dashboard</a>
 	</header>
 </body>

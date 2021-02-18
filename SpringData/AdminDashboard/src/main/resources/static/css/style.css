@@ -1,0 +1,20 @@
+#details {
+	border: 1pt solid darkgrey;
+	padding: 10px;
+	width: 500px;
+}
+
+header h1 {
+	display: inline-block;
+	margin-left: 15px;
+}
+
+header form {
+	display: inline-block;
+	margin: 5px 15px 0 0;
+	float: right;
+}
+
+.reg_btn {
+	margin-left: -15px;
+}

@@ -14,7 +14,7 @@
 </head>
 <body>
 	<header class="bg-dark p-2">
-		<h1 class="text-light">Dojos & Ninjas</h1>
+		<h1 class="text-light">Dojos &amp; Ninjas</h1>
 		<a href="/dojos" class="btn btn-info">View Dojos</a>				
 		<a href="/dojos/new" class="btn btn-info">Add Dojo</a>
 		<a href="/ninjas/new" class="btn btn-info">Add Ninja</a>

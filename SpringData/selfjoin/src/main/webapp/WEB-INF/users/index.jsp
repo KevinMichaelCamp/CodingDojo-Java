@@ -13,7 +13,7 @@
 
 <body>
 	<header class="bg-dark p-2 mb-5">
-		<h1>Users & Friends</h1>
+		<h1>Users &amp; Friends</h1>
 		<a href="/users" class="btn btn-primary">View Users</a>
 		<a href="/users/new" class="btn btn-primary">Add User</a>
 	</header>

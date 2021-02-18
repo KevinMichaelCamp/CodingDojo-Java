@@ -25,8 +25,8 @@
 		<h1 class="text-light">Student<span class="text-primary">Resources</span>App</h1>
 	</header>
 	<div class="card w-50 m-auto bg-light p-3 text-center">
-		<h5>Full Stack Spring Application using Java, JSPs & Bootstrap, with a MySQL database</h5>
-		<h6>Models used to showcase OneToOne, OneToMany, & ManyToMany table relationships</h6>
+		<h5>Full Stack Spring Application using Java, JSPs &amp; Bootstrap, with a MySQL database</h5>
+		<h6>Models used to showcase OneToOne, OneToMany, &amp; ManyToMany table relationships</h6>
 		<h6>Pagination, Repositories, APIService and Controller used in back-end</h6>
 	</div>
 	<div class="w-75 row m-auto text-center">
